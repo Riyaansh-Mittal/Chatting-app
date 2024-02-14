@@ -1,7 +1,13 @@
 import React from "react";
+import Chats from "./Chats";
 
 const GeneralApp = () => {
-  return <></>;
+  return (
+    <>
+      {/*Chats*/}
+      <Chats />
+    </>
+  );
 };
 
 export default GeneralApp;

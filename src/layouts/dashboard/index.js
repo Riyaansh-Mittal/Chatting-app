@@ -57,7 +57,7 @@ const DashboardLayout = () => {
   const [selected, setSelected] = useState(0);
   const { onToggleMode } = useSettings();
   return (
-    <>
+    <Stack direction="row">
       <Box
         p={2}
         sx={{
@@ -71,7 +71,7 @@ const DashboardLayout = () => {
           direction="column"
           alignItems={"center"}
           sx={{ height: "100%" }}
-          spacing={3}
+          py={2}
           justifyContent={"space-between"}
         >
           <Stack alignItems={"center"} spacing={4}>
@@ -163,13 +163,13 @@ const DashboardLayout = () => {
               }}
               defaultChecked
             />
-            <Avatar src={faker.image.avatar} />
+            <Avatar src={faker.image.avatar()} />
           </Stack>
         </Stack>
       </Box>
       <Outlet />
       {/*Outlet is used so that the generalApp code can also be rendered*/}
-    </>
+    </Stack>
   );
 };
 
