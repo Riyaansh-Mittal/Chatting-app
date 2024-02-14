@@ -40,7 +40,7 @@ export default function Router() {
 }
 
 const GeneralApp = Loadable(
+  // to show loading... for the time the page takes to load -> Suspense and Lazy
   lazy(() => import("../pages/dashboard/GeneralApp"))
 );
-// to show loading... for the time the page takes to load -> Suspense and Lazy
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
