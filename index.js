@@ -1,46 +1,28 @@
-import { Suspense, lazy } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-// layouts
-import DashboardLayout from "../layouts/dashboard";
+// contexts
+import SettingsProvider from "./contexts/SettingsContext";
 
-// config
-import { DEFAULT_PATH } from "../config";
-import LoadingScreen from "../components/LoadingScreen";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const Loadable = (Component) => (props) => {
-  return (
-    <Suspense fallback={<LoadingScreen />}>
-      <Component {...props} />
-    </Suspense>
-  );
-};
-
-export default function Router() {
-  return useRoutes([
-    {
-      path: "/",
-      // for this path, '/', DashboardLayout shows us. It won't show without this path.
-      element: <DashboardLayout />,
-      //all children are wrapped inside DashboardLayout
-      children: [
-        //here for '/', we navigate to /app by DEFAULT_PATH
-        { element: <Navigate to={DEFAULT_PATH} replace />, index: true },
-        //if user goes to '/app', then GeneralApp shows up
-        { path: "app", element: <GeneralApp /> },
-        //Here, we have set up fallbacks
-        // for '/404'
-        { path: "404", element: <Page404 /> },
-        //Navigate to /404
-        { path: "*", element: <Navigate to="/404" replace /> },
-      ],
-    },
-    { path: "*", element: <Navigate to="/404" replace /> },
-  ]);
-}
-
-const GeneralApp = Loadable(
-  // to show loading... for the time the page takes to load -> Suspense and Lazy
-  lazy(() => import("../pages/dashboard/GeneralApp"))
+root.render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <SettingsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </SettingsProvider>
+    </HelmetProvider>
+  </React.StrictMode>
 );
-const Page404 = Loadable(lazy(() => import("../pages/Page404")));
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
