@@ -14,8 +14,8 @@ import { styled, alpha, useTheme } from "@mui/material/styles";
 import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
 import React from "react";
 import { ChatList } from "../../data";
-import Scrollbar from "../../components/Scrollbar";
 import StyledBadge from "../../components/StyledBadge";
+import { SimpleBarStyle } from "../../components/Scrollbar";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -138,7 +138,8 @@ const Chats = () => {
           direction="column"
           sx={{ flexGrow: 1, overflowY: "scroll", height: "100%" }}
         >
-          <Scrollbar>
+          {/* <Scrollbar> */}
+          <SimpleBarStyle timeout={500} clickOnTrack={false}>
             <Stack spacing={2.4}>
               <Typography variant="subtitle2" sx={{ color: "#676767" }}>
                 Pinned
@@ -153,7 +154,8 @@ const Chats = () => {
                 return <ChatElement {...el} />;
               })}
             </Stack>
-          </Scrollbar>
+          </SimpleBarStyle>
+          {/* </Scrollbar> */}
         </Stack>
       </Stack>
     </Box>
