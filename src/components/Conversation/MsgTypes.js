@@ -13,7 +13,7 @@ import { DotsThreeVertical, DownloadSimple, Image } from "phosphor-react";
 import React, { useState } from "react";
 import { Message_options } from "../../data";
 
-const DocMSG = ({ el }) => {
+const DocMSG = ({ el, menu }) => {
   const theme = useTheme();
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -53,11 +53,12 @@ const DocMSG = ({ el }) => {
           </Typography>
         </Stack>
       </Box>
-      <MessageOptions />
+      {menu && <MessageOptions />}
+      
     </Stack>
   );
 };
-const LinkMSG = ({ el }) => {
+const LinkMSG = ({ el, menu }) => {
   const theme = useTheme();
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -106,12 +107,12 @@ const LinkMSG = ({ el }) => {
           </Stack>
         </Stack>
       </Box>
-      <MessageOptions />
+      {menu && <MessageOptions />}
     </Stack>
   );
 };
 
-const ReplyMSG = ({ el }) => {
+const ReplyMSG = ({ el, menu }) => {
   const theme = useTheme();
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -148,11 +149,11 @@ const ReplyMSG = ({ el }) => {
           </Typography>
         </Stack>
       </Box>
-      <MessageOptions />
+      {menu && <MessageOptions />}
     </Stack>
   );
 };
-const MediaMSG = ({ el }) => {
+const MediaMSG = ({ el, menu }) => {
   const theme = useTheme();
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -178,12 +179,12 @@ const MediaMSG = ({ el }) => {
           </Typography>
         </Stack>
       </Box>
-      <MessageOptions />
+      {menu && <MessageOptions />}
     </Stack>
   );
 };
 
-const TextMSG = ({ el }) => {
+const TextMSG = ({ el, menu }) => {
   const theme = useTheme();
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -204,7 +205,7 @@ const TextMSG = ({ el }) => {
           {el.message}
         </Typography>
       </Box>
-      <MessageOptions />
+      {menu && <MessageOptions />}
     </Stack>
   );
 };
