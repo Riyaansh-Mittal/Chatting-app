@@ -28,6 +28,7 @@ export default function Router() {
         { element: <Navigate to={DEFAULT_PATH} replace />, index: true },
         //if user goes to '/app', then GeneralApp shows up
         { path: "app", element: <GeneralApp /> },
+        { path: "settings", element: <Settings /> },
         //Here, we have set up fallbacks
         // for '/404'
         { path: "404", element: <Page404 /> },
@@ -39,6 +40,9 @@ export default function Router() {
   ]);
 }
 
+const Settings = Loadable(
+  lazy(() => import("../pages/dashboard/Settings"))
+);
 const GeneralApp = Loadable(
   lazy(() => import("../pages/dashboard/GeneralApp"))
 );
