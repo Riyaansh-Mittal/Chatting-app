@@ -3,18 +3,12 @@ import { useDispatch } from "react-redux";
 import { useTheme } from "@mui/material/styles";
 import {
   Box,
-  Grid,
   IconButton,
   Stack,
-  Tab,
-  Tabs,
   Typography,
 } from "@mui/material";
 import { CaretLeft } from "phosphor-react";
 import { updateSidebarType } from "../redux/slices/app";
-import { faker } from "@faker-js/faker";
-import { SHARED_DOCS, SHARED_LINKS } from "../data";
-import { DocMSG, LinkMSG } from "./Conversation/MsgTypes";
 import Message from "./Conversation/Message";
 
 const StarredMessages = () => {
