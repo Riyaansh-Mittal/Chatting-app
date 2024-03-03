@@ -63,7 +63,7 @@ const Chats = () => {
         </Stack>
         <Stack
           direction="column"
-          sx={{ flexGrow: 1, overflowY: "scroll", height: "100%" }}
+          sx={{ flexGrow: 1, overflowY: "auto", height: "100%" }}
         >
           {/* <Scrollbar> */}
           <SimpleBarStyle timeout={500} clickOnTrack={false}>

@@ -71,7 +71,7 @@ const Group = () => {
             </Stack>
             <Divider />
             <Stack
-              sx={{ flexGrow: 1, overflowY: "scroll", height: "100%" }}
+              sx={{ flexGrow: 1, overflowY: "auto", height: "100%" }}
             >
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
                 <Stack spacing={2}>

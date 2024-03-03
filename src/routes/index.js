@@ -43,6 +43,7 @@ export default function Router() {
         { path: "settings", element: <Settings /> },
         { path: "group", element: <GroupPage /> },
         { path: "call", element: <CallPage /> },
+        { path: "profile", element: <ProfilePage /> },
         //Here, we have set up fallbacks
         // for '/404'
         { path: "404", element: <Page404 /> },
@@ -65,6 +66,9 @@ const GroupPage = Loadable(
 );
 const CallPage = Loadable(
   lazy(() => import("../pages/dashboard/Call"))
+);
+const ProfilePage = Loadable(
+  lazy(() => import("../pages/dashboard/Profile"))
 );
 const LoginPage = Loadable(
   lazy(() => import("../pages/auth/Login"))
