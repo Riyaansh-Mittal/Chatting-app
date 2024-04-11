@@ -16,6 +16,8 @@ import AntSwitch from "../../components/AntSwitch";
 import Logo from "../../assets/Images/logo.ico";
 import { Nav_Buttons, Profile_Menu } from "../../data";
 import { useNavigate } from "react-router-dom";
+import { LogoutUser } from "../../redux/slices/auth";
+import { useDispatch } from "react-redux";
 
 const getPath = (index) => {
   switch (index) {
@@ -47,6 +49,7 @@ const getMenuPath = (index) => {
 
 const SideBar = () => {
   const [selected, setSelected] = useState(0);
+  const dispatch = useDispatch();
   const theme = useTheme();
   const navigate = useNavigate();
   const { onToggleMode } = useSettings();
@@ -200,7 +203,11 @@ const SideBar = () => {
                 >
                   <Stack
                     onClick={() => {
-                      navigate(getMenuPath(idx));
+                      if (idx === 2) {
+                        dispatch(LogoutUser());
+                      } else {
+                        navigate(getMenuPath(idx));
+                      }
                     }}
                     sx={{ width: 100 }}
                     direction="row"

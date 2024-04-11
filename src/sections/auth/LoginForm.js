@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from "react-redux";
 import {
   Alert,
   Button,
@@ -48,8 +48,7 @@ const LoginForm = () => {
     try {
       // submit data to backend
 
-      dispatch(LoginUser(data))
- 
+      dispatch(LoginUser(data));
     } catch (error) {
       console.log(error);
       reset();
@@ -88,7 +87,13 @@ const LoginForm = () => {
         />
       </Stack>
       <Stack alignItems={"flex-end"} sx={{ my: 2 }}>
-        <Link component={RouterLink} to='/auth/reset-password' variant="body" color="inherit" underline="always">
+        <Link
+          component={RouterLink}
+          to="/auth/reset-password"
+          variant="body"
+          color="inherit"
+          underline="always"
+        >
           Forgot Password?
         </Link>
       </Stack>

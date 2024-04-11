@@ -43,13 +43,70 @@ export function LoginUser(formValues) {
           },
         }
       )
-      .then(function (response) { 
-        dispatch(slice.actions.logIn({
+      .then(function (response) {
+        dispatch(
+          slice.actions.logIn({
             isLoggedIn: true,
             token: response.data.token,
-        }))
+          })
+        );
       })
       .catch(function (error) {
+        console.log(error);
+      });
+  };
+}
+
+export function LogoutUser() {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.signOut());
+  };
+}
+
+export function ForgotPassword(formValues) {
+  return async (dispatch, getState) => {
+    await axios
+      .post(
+        "/auth/forgot-password",
+        {
+          ...formValues,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+}
+
+export function newPassword(formValues) {
+  return async (dispatch, getState) => {
+    await axios
+      .post(
+        "/auth/reset-password",
+        {
+          ...formValues,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        dispatch(slice.actions.logIn({
+          isLoggedIn: true,
+          token: response.data.token,
+        }))
+      })
+      .catch((error) => {
         console.log(error);
       });
   };
