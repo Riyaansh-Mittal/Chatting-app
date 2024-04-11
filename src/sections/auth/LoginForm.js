@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
+import {useDispatch} from 'react-redux';
 import {
   Alert,
   Button,
@@ -14,8 +15,10 @@ import {
 import { RHFTextField } from "../../components/hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
 import { Link as RouterLink } from "react-router-dom";
+import { LoginUser } from "../../redux/slices/auth";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
@@ -44,6 +47,9 @@ const LoginForm = () => {
   const onSubmit = async (data) => {
     try {
       // submit data to backend
+
+      dispatch(LoginUser(data))
+ 
     } catch (error) {
       console.log(error);
       reset();
