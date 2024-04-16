@@ -27,7 +27,8 @@ export default function Router() {
         {element: <LoginPage />, path: "login"},
         {element: <RegisterPage />, path: "register"},
         {element: <ResetPasswordPage />, path: "reset-password"},
-        {element: <NewPasswordPage />, path: "new-password"}
+        {element: <NewPasswordPage />, path: "new-password"},
+        {element: <VerifyPage />, path: "verify"}
       ]
     },
     {
@@ -81,6 +82,9 @@ const ResetPasswordPage = Loadable(
 );
 const NewPasswordPage = Loadable(
   lazy(() => import("../pages/auth/NewPassword"))
+);
+const VerifyPage = Loadable(
+  lazy(() => import("../pages/auth/Verify"))
 );
 // to show loading... for the time the page takes to load -> Suspense and Lazy
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
