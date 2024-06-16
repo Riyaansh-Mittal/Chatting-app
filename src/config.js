@@ -4,7 +4,8 @@ import { enUS, frFR, zhCN, viVN, arSD } from "@mui/material/locale";
 // routes
 import { PATH_DASHBOARD } from "./routes/paths";
 
-export const BASE_URL = "http://localhost:3000";
+// export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://cef8-2401-4900-816a-efbf-d0da-ae6-f6fb-94a5.ngrok-free.app";
 
 export const defaultSettings = {
   themeMode: "light",
