@@ -1,7 +1,12 @@
 import { Dialog, DialogContent, Stack, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFriendRequests, fetchFriends, fetchUsers } from "../../redux/slices/app";
+import {
+  fetchFriendRequests,
+  fetchFriends,
+  fetchUsers,
+} from "../../redux/slices/app";
+import { FriendComponent, FriendRequestComponent, UserComponent } from "../../components/Friends";
 
 const UsersList = () => {
   const dispatch = useDispatch();
@@ -12,8 +17,9 @@ const UsersList = () => {
   const { users } = useSelector((state) => state.app);
   return (
     <>
-      {users.map((el, idx) => {
+      {users && users.map((el, idx) => {
         // TODO => Render UserComponent
+        return <UserComponent key={el._id} {...el} />;
         return <></>;
       })}
     </>
@@ -28,9 +34,9 @@ const FriendsList = () => {
   const { friends } = useSelector((state) => state.app);
   return (
     <>
-      {friends.map((el, idx) => {
-        // TODO => Render UserComponent
-        return <></>;
+      {friends && friends.map((el, idx) => {
+        // TODO => Render FriendComponent
+        return <FriendComponent key={el._id} {...el}/>;
       })}
     </>
   );
@@ -41,12 +47,13 @@ const FriendRequestList = () => {
     dispatch(fetchFriendRequests());
   }, []);
 
-  const { friendRequests} = useSelector((state) => state.app);
+  const { friendRequests } = useSelector((state) => state.app);
   return (
     <>
-      {friendRequests.map((el, idx) => {
-        // TODO => Render UserComponent
-        return <></>;
+      {friendRequests && friendRequests.map((el, idx) => {
+        //el => {_id, sender: {_id, firstName, lastName, img, online}}
+        // TODO => Render FriendRequestComponent
+        return <FriendRequestComponent key={el._id} {...el.sender} id={el._id}/>;
       })}
     </>
   );

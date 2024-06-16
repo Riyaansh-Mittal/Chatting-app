@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Alert,
   Button,
@@ -20,6 +20,7 @@ import { LoginUser } from "../../redux/slices/auth";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const {isLoading} = useSelector((state) => state.auth);
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is required")
@@ -41,7 +42,7 @@ const LoginForm = () => {
     reset,
     setError,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors },
   } = methods;
 
   const onSubmit = async (data) => {
@@ -103,6 +104,7 @@ const LoginForm = () => {
         size="large"
         type="submit"
         variant="contained"
+        loading={isLoading}
         sx={{
           bgcolor: "text.primary",
           color: (theme) =>

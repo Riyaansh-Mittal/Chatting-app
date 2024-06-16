@@ -60,7 +60,7 @@ export function LoginUser(formValues) {
             token: response.data.token,
           })
         );
-
+        window.localStorage.setItem("user_id", response.data.user_id);
         dispatch(showSnackbar({severity: "success", message: response.data.message}))
       })
       .catch(function (error) {
@@ -73,6 +73,7 @@ export function LoginUser(formValues) {
 export function LogoutUser() {
   return async (dispatch, getState) => {
     dispatch(slice.actions.signOut());
+    window.localStorage.removeItem("user_id");
   };
 }
 
