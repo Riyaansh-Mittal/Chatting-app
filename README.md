@@ -1,19 +1,15 @@
 # ChatApp
 
-Welcome to ChatApp, a modern chatting application built using React, TailwindCSS, and Material UI. ChatApp enables users to communicate through one-to-one chats, group chats, audio calls, and video calls. Additionally, it offers features such as stories/updates, light/dark mode, multiple color presets, authentication (login/register), and settings customization. The application is designed to be fully responsive, ensuring a seamless user experience across different devices.
+Welcome to ChatApp, a modern chatting application built using React, TailwindCSS, and Material UI. ChatApp enables users to communicate through one-to-one chats. Additionally, it offers features such as light/dark mode, multiple color presets, authentication (login/register), and settings customization. The application is designed to be fully responsive, ensuring a seamless user experience across different devices.
 
 ## Features
 
 1. **One-to-One Chat**: Users can engage in private conversations with individuals.
-2. **Group Chat**: Users can create or join group conversations with multiple participants.
-3. **Audio Calling**: Seamless audio calling feature for real-time communication.
-4. **Video Calling**: High-quality video calling functionality for face-to-face interactions.
-5. **Stories/Updates**: Users can post stories or updates for their contacts to view.
-6. **Light/Dark Mode**: Switch between light and dark mode based on user preferences.
-7. **Fully Responsive**: Responsive design ensures optimal viewing experience across devices.
-8. **Multiple Color Presets**: Choose from a variety of color presets to customize the interface.
-9. **Authentication (Login/Register)**: Secure authentication system for user accounts.
-10. **Settings**: Customizable settings for a personalized user experience.
+2. **Light/Dark Mode**: Switch between light and dark mode based on user preferences.
+3. **Fully Responsive**: Responsive design ensures optimal viewing experience across devices.
+4. **Multiple Color Presets**: Choose from a variety of color presets to customize the interface.
+5. **Authentication (Login/Register)**: Secure authentication system for user accounts.
+6. **Settings**: Customizable settings for a personalized user experience.
 
 ## Tech Stack
 
